@@ -28,10 +28,19 @@ $(function(){
 
     request.done(function(request){
       var artistName = request;
-      console.log(artistName);
+      // console.log(artistName.artists);
 
-      var y = artistName.items;
-      console.log(y);
+
+
+      var x = artistName.artists;
+
+      var y = x.items;
+
+      // console.log(y);
+
+
+
+
       // var searchResults = request.Search;
       // console.log(artistName);
 
@@ -43,8 +52,10 @@ $(function(){
     // });
 
 
-      for(var i=0; i<artistName.length; i++){
-        var artist = artistName[i];
+      for(var i=0; i<y.length; i++){
+        var artist = y[i];
+
+        // console.log(artist);
 
         var elements = ['<li>','<h2>'+ artist.name + '</h2>','</li>'].join('');
 
