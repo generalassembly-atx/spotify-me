@@ -31,8 +31,9 @@ $('#results').empty();
         data: {
           q: artistRequest,
           type: 'artist'
-        }
+
+
+
       })
-
-
-  
+    }
+})
