@@ -5,19 +5,24 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  
+
   <form id="search">
     <h1>spotify.me</h1>
-    <input type="search" id="search-keyword">
+    <input type="search" id="search_keyword" placeholder="Search by artist name or track">
     <select id="search-type">
       <option value="artist">Search by artist</option>
       <option value="track">Search by track name</option>
     </select>
     <input type="submit" value="Submit">
   </form>
-  
+
   <ul id="results"></ul>
 
+
+	<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
   <script src="js/jquery.js"></script>
   <script src="js/spotify.js"></script>
 </body>
