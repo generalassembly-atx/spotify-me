@@ -17,39 +17,25 @@ $(function(){
 						url: url
 				});
 
-		if (type === 'artist'){
-
-		 	request.done(function(response){
-
-		 		var results = response.artists.items;
-		 		console.log(results);
-		 		for (var i=0, x=results.length; i<x; i++){
-		 			var list = results[i];}
-		 			console.log('results:', list);
-		 		
-		 			results.forEach(function(data) {
-        			$('#results').append("<li>" + data.name + "</li>")
-        			});
-		 		});
-
 		
-		} else { 
-		 	request.done(function(response){
 
-		 		var results = response.tracks.items;
-		 		console.log(results);
+
+		 	request.done(function(response){
+		 		if (type === 'artist'){
+		 			var results = response.artists.items;	
+		 		} else {
+		 			var results = response.tracks.items;
+		 		}
+		 		//console.log(results);
 		 		for (var i=0, x=results.length; i<x; i++){
 		 			var list = results[i];}
-		 			console.log('results:', list);
+		 			//console.log('results:', list);
 		 		
 		 			results.forEach(function(data) {
         			$('#results').append("<li>" + data.name + "</li>")
         			});
 		 		});
-		  
-			}
-			  
-});
+			  });
 });
 
 
@@ -66,3 +52,60 @@ $(function(){
 	//	    var url = 'https://api.spotify.com/v1/search?q='+keyword+'&type=track';
 	//		console.log('searchbytrack')
 	//	}
+
+
+	//--------------------another way to do this ----------------------------------------------
+	// API Docs at:
+// https://developer.spotify.com/web-api/search-item/
+
+// $(function(){
+
+//   function search(keyword,type,key){
+//     var url = 'https://api.spotify.com/v1/search?q='+keyword+'&type=' + type;
+
+//     $('#results').empty();
+
+//     // console.log(artist);
+//   $.get(url,function(response){
+//       console.log(response);
+//       var y = response[key].items;
+
+//       for(var i=0; i<y.length; i++){
+//         var artist = y[i];
+//         // console.log(artist);
+//         var elements = ['<li>','<h2>'+ artist.name + '</h2>','</li>'].join('');
+//         $('#results').append(elements);
+
+//       }
+//     });
+//   }
+
+// function searchByArtist(keyword) {
+//   search(keyword,'artist','artists');
+// }
+
+
+// function searchByTrack(keyword) {
+//   search(keyword,'track','tracks');
+// }
+
+
+
+//   $('#submit').on('click', function(e){
+//     e.preventDefault();
+//     var searchText = $('#search-keyword').val(),
+//       trackType = $('#search-type').val();
+
+//     switch(trackType){
+//       case 'artist':
+//         search(searchText,'artist','artists');
+//         searchByArtist(searchText);
+//       break;
+//       case 'track':
+//         searchByTrack(searchText);
+//       break;
+//     }
+
+//   });
+
+// });
