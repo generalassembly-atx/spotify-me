@@ -3,7 +3,7 @@
 var userInput = $("#search-keyword");
 var form = $("#search");
 var results = $('#results');
-
+ $('#results').empty();
 
 function searchByArtist(keyword) {
   var url = 'https://api.spotify.com/v1/search?q='+keyword+'&type=artist';
@@ -15,6 +15,7 @@ function searchByTrack(keyword) {
 }
 form.on('submit', function(event){
   event.preventDefault();
+
 
   var searchType = $('#search-type').val();
   var formInput = userInput.val();
@@ -36,6 +37,7 @@ form.on('submit', function(event){
           results.append(listItem);
           console.log(results);
           $('#totalResults').text(results.length);
+
 
         })
     }
